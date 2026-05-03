@@ -1,0 +1,11 @@
+/* index.css or App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(0, 3, 36); /* Set the global background to your dark blue */
+  color: white;
+}

@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.account {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #1d1155;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  padding: 10px 14px;
+  height: 40px;
+}
+
+/* These two divs balance the bar so the center is actually the center */
+.nav-side {
+  flex: 1;
+}
+
+.nav-center {
+  flex: 0; /* Only takes as much space as the text needs */
+  text-align: center;
+}
+
+.nav-side.right {
+  text-align: right; /* Pushes the 2/6 to the far right wall */
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+}
+.header .left ,.account-table{
+    margin-left: 5px;
+}
+.left h3{
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.add-btn{
+    background:blue;
+    color: white;
+    border: none;
+    height: 23px;
+    padding: 5px 20px;
+    cursor: pointer;
+    font-size: 8px;
+    font-weight: bolder;
+    margin: 5px 10px  0 0;
+}
+.add-btn:hover{
+    background: rgb(13, 224, 59);
+}
+
