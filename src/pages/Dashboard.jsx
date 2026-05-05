@@ -1,5 +1,6 @@
 import "../styles/dashboard.css";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useNavigate } from "react-router-dom";
 
 const SpendingData=[
   {month: 'Jan', spend: 15000},
@@ -10,10 +11,18 @@ const SpendingData=[
   {month: 'Jun', spend: 16500},
 ]
 
+
 function Dashboard() {
+  const navigate=useNavigate();
+const Statements=()=>{
+  navigate('/Statement');
+}
+const Cards=()=>{
+  navigate('/Cards');
+}
   return (
     <div className="dashboard">
-      <nav className="navbar">
+      <nav className="dashboard-navbar">
         {/* Left Side (Empty to balance the center) */}
         <div className="nav-side"></div>
 
@@ -28,12 +37,12 @@ function Dashboard() {
         </div>
       </nav>
 
-      <div className="header">
-        <h2>Good Morning, Alex 👋</h2>
-        <h4>Here's your financial overview for today.</h4>
+      <div className="dashboard-header">
+        <h2>Good Morning, Alex 👋 </h2>
+        <p>Here's your financial overview for today.</p>
       </div>
 
-      <div className="boxes">
+      <div className=" dashboard-boxes">
         <div className="box box1">
           <h4>Total Balance</h4>
           <p>₹1,50,000</p>
@@ -73,9 +82,9 @@ function Dashboard() {
         <div className="actions">
           <h3>Quick Actions</h3>
           <button className="action-btn">Send Money</button>
-          <button className="action-btn">Request</button>
-          <button className="action-btn">Statement</button>
-          <button className="action-btn">Cards</button>
+          <button className="action-btn" >Request</button>
+          <button className="action-btn" onClick={Statements}>Statement</button>
+          <button className="action-btn" onClick={Cards}>Cards</button>
         </div>
       </div>
     </div>

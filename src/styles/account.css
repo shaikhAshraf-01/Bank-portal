@@ -10,54 +10,130 @@
   background: #1d1155;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.navbar {
+.account-navbar {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid rgb(255, 255, 255);
-  padding: 10px 14px;
-  height: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  height: 50px; /* Increased from 40px */
 }
 
 /* These two divs balance the bar so the center is actually the center */
-.nav-side {
+.account-navbar .nav-side {
   flex: 1;
 }
 
-.nav-center {
+.account-navbar .nav-center {
   flex: 0; /* Only takes as much space as the text needs */
   text-align: center;
 }
 
-.nav-side.right {
-  text-align: right; /* Pushes the 2/6 to the far right wall */
+.account-navbar .nav-side.right {
+  text-align: right;
+  margin-right: 10px;/* Pushes the 2/6 to the far right wall */
 }
-.header{
-    display: flex;
-    flex-direction: row;
+.account-header{
+    display: flex !important;
+    margin-top: 13px;
+    flex-direction: row !important;
     justify-content: space-between;
     color: white;
 }
-.header .left ,.account-table{
+.account-header .left {
     margin-left: 5px;
 }
 .left h3{
-    font-size: 15px;
-    margin-bottom: 5px;
+    font-size: 25px !important;
+    margin-bottom: 12px;
 }
 .add-btn{
+  display: flex !important;
+  align-items: center !important;
     background:blue;
     color: white;
     border: none;
-    height: 23px;
-    padding: 5px 20px;
+    height: 35px !important;
+    padding: 15px 20px !important;
     cursor: pointer;
-    font-size: 8px;
+    font-size:15px;
     font-weight: bolder;
     margin: 5px 10px  0 0;
 }
 .add-btn:hover{
     background: rgb(13, 224, 59);
 }
+.accounts-list{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 20px 5px 0 0px;
+   }
+   .accounts-list .account-card:nth-child(1){
+        border-left: 10px solid blue;
 
+   }
+   .accounts-list .account-card:nth-child(2){
+        border-left: 10px solid green;
+
+   }
+   .accounts-list .account-card:nth-child(3){
+        border-left: 10px solid yellow;
+
+   }
+.account-card{
+  display:flex;
+  justify-content: space-between;
+    background: #2c1e7e;
+    color: white;
+    padding: 5px;
+    width:100%;
+    margin-bottom: 10px;
+}
+.account-card .details, .buttons{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.account-card .details{
+  margin-left: 10px;
+}
+.account-card .details h3{
+  font-size: 20px;
+  margin:10px 0;
+}
+.account-card .details p{
+  font-size: 14px;
+}
+.account-card .details :nth-child(3){
+  color: rgb(116, 116, 194);
+}
+.buttons{
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.buttons .type-name{
+  margin:10px  20px 0 0;
+    background: rgba(5, 5, 146, 0.185);
+    color: white;
+    border: 1px solid rgb(29, 89, 201);
+    padding: 10px 15px;
+    width:130px;
+    text-align: center;
+    cursor: pointer;
+}
+.buttons .all-btn{
+    color: whitesmoke;
+    border: none;
+    padding: 5px 10px;
+}
+.buttons .all-btn .btn{
+    background: rgba(5, 5, 146, 0.185);
+    color: white;
+    border: 1px solid rgb(29, 89, 201);
+    width:100px;
+    border: 1px solid rgb(65, 88, 190);
+    padding: 10px 15px;
+    margin:7px;
+    cursor: pointer;
+}

@@ -6,12 +6,12 @@
 
 body, html {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 .dashboard {
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
   width: 100%; /* Ensures it fills the space next to sidebar */
   min-height: 100vh;
   background: #1d1155;
@@ -19,84 +19,85 @@ body, html {
 }
 
 /* NAVBAR - Increased height and font for 100% zoom */
-.navbar {
+.dashboard-navbar {
   width: 100%;
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding:  0 40px ;
-  height: 100px; /* Increased from 40px */
+  height: 50px; /* Increased from 40px */
 }
 
-.nav-side {
+.dashboard-navbar .nav-side {
   flex: 1;
   color: white;
 }
 
-.nav-center {
+.dashboard-navbar .nav-center {
   flex: 0;
   text-align: center;
   color: white;
 }
 
-.nav-center h3 {
+.dashboard-navbar .nav-center h3 {
   font-size: 20px;
 }
 
-.nav-side.right {
+.dashboard-navbar .nav-side.right {
   text-align: right;
+  margin-right: 5px;
   font-size: 14px;
 }
 
-/* HEADER SECTION - Fixed alignment and size */
-.header {
-  width: 100% !important; /* Force full width */
-  display: block !important; 
-  padding: 30px 20px 10px 30px;
+/* HEADER - Force Vertical stacking for children */
+.dashboard-header {
+  display: block !important; /* Block items always stay on separate lines */
+  width: 100% !important;
+  padding: 10px 30px 10px 30px;
   text-align: left !important;
-  clear: both; /* Breaks any floating elements from the navbar */
 }
 
-.header h2 {
+.dashboard-header h2 {
   color: white;
   font-size: 26px;
-  margin: 0 0 8px 0 !important; /* Reset margins */
-  display: block !important;
+  display: block !important; /* Force its own line */
+  width: 100% !important;
+  margin-bottom: 10px !important;
   text-align: left !important;
 }
 
-.header h4 {
+.dashboard-header p {
   color: #a0a0a0;
   font-size: 15px;
-  margin: 0 !important;
-  display: block !important;
+  display: block !important; /* Force its own line */
+  width: 100% !important;
   text-align: left !important;
 }
+
+
 
 
 /* BOXES - Changed to flex:1 to fill the width */
-.boxes {
+.dashboard-boxes {
   display: flex;
   gap: 20px;
   padding: 20px 30px;
 }
 
-.box {
+.dashboard-boxes .box {
   flex: 1;
   background: #2d1b7c;
-  padding: 25px; /* Increased padding */
+  padding: 15px; /* Increased padding */
   border-radius: 6px;
 }
-
-.box h4 {
+  
+.dashboard-boxes .box h4 {
   font-size: 14px; /* Increased from 12px */
   margin-bottom: 10px;
   color: thistle;
 }
 
-.box p {
+.dashboard-boxes .box p {
   font-size: 22px; /* Increased from 14px */
   color: white;
   font-weight: bold;
@@ -110,14 +111,14 @@ body, html {
 .summary-actions {
   display: flex;
   gap: 20px;
-  padding: 20px 30px;
+  padding: 10px 30px;
   flex: 1;
 }
 
 .summary {
   width: 70%;
   background: #2d1b7c;
-  padding: 25px;
+  padding: 15px;
   border-radius: 6px;
 }
 

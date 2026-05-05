@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.statement {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #1d1155;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.statement-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  height: 50px; /* Increased from 40px */
+}
+
+/* These two divs balance the bar so the center is actually the center */
+.statement-navbar .nav-side {
+  flex: 1;
+}
+
+.statement-navbar .nav-center {
+  flex: 0; /* Only takes as much space as the text needs */
+  text-align: center;
+}
+
+.statement-navbar .nav-side.right {
+  text-align: right;
+  margin-right: 10px;/* Pushes the 2/6 to the far right wall */
+}
+.statement-header{
+    display: flex !important;
+    margin-top: 13px;
+    flex-direction: row !important;
+    justify-content: space-between;
+    color: white;
+}
+.statement-header .left {
+    margin-left: 5px;
+}
+.left h3{
+    font-size: 25px !important;
+    margin-bottom: 12px;
+}
+.download-pdf{
+  display: flex !important;
+  align-items: center !important;
+    background:rgba(14, 179, 83, 0.651);
+    color: white;
+    border: none;
+    height: 35px !important;
+    padding: 15px 40px !important;
+    cursor: pointer;
+    font-size:15px;
+    font-weight: bolder;
+    margin: 5px 30px  0 0;
+}
+.download-pdf:hover{
+    background: rgb(13, 224, 59);
+}
+.statement-period-boxes{
+    display: flex !important;
+    justify-content: space-between !important;
+    margin: 20px 30px 0 5px;
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.statement-period-boxes button{
+    background:rgba(255, 255, 255, 0.2);
+    color: white;
+    border:1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    cursor: pointer;
+    flex: 1;
+    margin: 2px 10px ;
+    font-size: 12px;
+    transition: all 0.3s ease-in;
+}
+.statement-period-boxes button:hover{
+    background:blue;
+    transform: translateY(-2px);
+
+}
+.transaction-section {
+  margin-top: 10px;
+  background:transparent;
+  border-radius: 12px;
+   height: 400px;        /* Ek fixed height dena zaroori hai */
+  overflow-y: auto;     /* Vertical scroll enable karne ke liye */
+  overflow-x: hidden;
+}
+.transaction-section::-webkit-scrollbar {
+  width: 10px;
+}
+
+.transaction-section::-webkit-scrollbar-track {
+  background: #4a62b1;
+  border-radius: 10px;
+}
+
+.transaction-section::-webkit-scrollbar-thumb {
+  background:white;
+  border-radius: 10px;
+}
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.transaction-table th {
+     position: sticky;
+  top: 0;
+  z-index: 10;
+  color: #4deaff;
+  background: #483791;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 20px;
+}
+
+.transaction-table td {
+    margin: 0 15px;
+  padding: 15px 20px;
+  font-size: 14px;
+  color: #fff;
+}
+
