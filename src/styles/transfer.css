@@ -49,25 +49,124 @@ body, html {
   font-size: 14px;
 }
 .transfer-header{
-    margin:10px 5px;
+    margin:15px 5px;
     font-size:18px ;
 }
 .payment-method{
     width: 100%;
     display: flex;
+    justify-content: space-between;
 }
-.right-container{
-    width:60%;
-    max-width:60%;
+.right-container {
+    width:55%;
+    max-width:55%;
     display: flex;
     flex-direction: column;
     gap: 10px;
     background: #232b5ad0;
-    border: #1d1155 solid 1px;
+    border: #4a389b solid 1px;
+}
+.right-container p{
+    color: white;
+    font-size: 18px;
+    margin: 20px 0 0 15px;
 }
 .form-group{
     display: flex;
     flex-direction: column;
     gap: 5px;
     margin: 10px;
+}
+.form-group label{
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+    
+}
+.form-group select{
+    cursor: pointer;
+}
+.form-group select, .form-group input{
+    padding: 10px;
+    border: #6e60ad solid 0.7px;
+    background-color: #232b5ad0;
+    color: white;
+    margin-bottom: 5px;
+    outline: none;
+      pointer-events: auto !important;
+}
+.buttons{
+    width: 100%;
+    padding: 10px;
+   display: flex;
+   flex-direction: row !important;
+   justify-content: space-between;
+    color: white;
+    margin: 2px 15px 3px 0;
+}
+.buttons button{
+    flex:1;
+    margin:0 5px;
+    padding: 10px;
+    background: #1d1155;
+        border: #6e60ad solid 0.7px;
+
+    color: white;
+     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s; 
+    cursor: pointer;
+}
+.buttons button:hover{
+    background: #ffaa0d;
+}
+.transfer-btn{
+    background: #4019ee;
+        border: #6e60ad solid 0.7px;
+padding: 10px;
+    color: white;
+     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s; 
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+}
+.transfer-btn:hover{
+    background:rgb(14, 190, 8);
+}
+.left-container{
+    width: 35%;
+     display: flex;
+    flex-direction: column;
+    gap: 10px;
+   margin: 0 auto;
+}
+.left-container .left-top{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;      /* Sirf upar-neeche se center karega */
+    justify-content: flex-start; /* Ensure karega ki sab kuch Left side hi rahe */
+    
+    text-align: left; 
+    padding: 10px;
+    color: white;
+     background: #232b5ad0;
+    border: #4a389b solid 1px;
+}
+.left-container .left-top h3{
+    margin: 5px;
+    font-size: 18px;
+}
+
+.left-container .left-top p{
+     margin: 10px;
+    font-size: 18px;
+    
+    line-height: 1; /* Text ki extra space hatane ke liye */
+
+    
+}
+.icon{
+    font-size: 16px;
+     flex-shrink: 0; 
+     color: #4019ee;
+
 }
