@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   width: 100%;
   height: 100vh;
 }
@@ -29,144 +30,149 @@ body, html {
 }
 
 .transfer-navbar .nav-side {
- 
   color: white;
 }
 
 .transfer-navbar .nav-center {
-  margin: 0 430px;
+  margin: 0 450px;
   text-align: center;
   color: white;
 }
 
 .transfer-navbar .nav-center h3 {
-  font-size: 20px;
+  flex: 1;
+  font-size: 18px;
 }
 
 .transfer-navbar .nav-side.right {
   text-align: right;
-  margin-right: 5px;
-  font-size: 14px;
+  margin-right: 10px;
+  
 }
-.transfer-header{
-    margin:15px 5px;
-    font-size:18px ;
+.transfer-header {
+  margin: 15px 5px;
+  font-size: 18px;
 }
-.payment-method{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.payment-method {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 .right-container {
-    width:55%;
-    max-width:55%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background: #232b5ad0;
-    border: #4a389b solid 1px;
+  width: 55%;
+  max-width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #232b5ad0;
+  border: #4a389b solid 1px;
 }
-.right-container p{
-    color: white;
-    font-size: 18px;
-    margin: 20px 0 0 15px;
+.right-container p {
+  color: white;
+  font-size: 18px;
+  margin: 20px 0 0 15px;
 }
-.form-group{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin: 10px;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 10px;
 }
-.form-group label{
-    color: white;
-    font-size: 14px;
-    padding: 5px;
-    
+.form-group label {
+  color: white;
+  font-size: 14px;
+  padding: 5px;
 }
-.form-group select{
-    cursor: pointer;
+.form-group select {
+  cursor: pointer;
 }
-.form-group select, .form-group input{
-    padding: 10px;
-    border: #6e60ad solid 0.7px;
-    background-color: #232b5ad0;
-    color: white;
-    margin-bottom: 5px;
-    outline: none;
-      pointer-events: auto !important;
+.form-group select,
+.form-group input {
+  padding: 10px;
+  border: #6e60ad solid 0.7px;
+  background-color: #232b5ad0;
+  color: white;
+  margin-bottom: 5px;
+  outline: none;
+  pointer-events: auto !important;
 }
-.buttons{
-    width: 100%;
-    padding: 10px;
-   display: flex;
-   flex-direction: row !important;
-   justify-content: space-between;
-    color: white;
-    margin: 2px 15px 3px 0;
+.buttons {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-between;
+  color: white;
+  margin: 2px 15px 3px 0;
 }
-.buttons button{
-    flex:1;
-    margin:0 5px;
-    padding: 10px;
-    background: #1d1155;
-        border: #6e60ad solid 0.7px;
+.buttons button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  background: #1d1155;
+  border: #6e60ad solid 0.7px;
 
-    color: white;
-     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s; 
-    cursor: pointer;
+  color: white;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+  cursor: pointer;
 }
-.buttons button:hover{
-    background: #ffaa0d;
+.buttons button:hover {
+  background: #ffaa0d;
 }
-.transfer-btn{
-    background: #4019ee;
-        border: #6e60ad solid 0.7px;
-padding: 10px;
-    color: white;
-     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s; 
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 15px;
+.transfer-btn {
+  background: #4019ee;
+  border: #6e60ad solid 0.7px;
+  padding: 10px;
+  color: white;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
 }
-.transfer-btn:hover{
-    background:rgb(14, 190, 8);
+.transfer-btn:hover {
+  background: rgb(14, 190, 8);
 }
-.left-container{
-    width: 35%;
-     display: flex;
-    flex-direction: column;
-    gap: 10px;
-   margin: 0 auto;
+.left-container {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 auto;
 }
-.left-container .left-top{
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;      /* Sirf upar-neeche se center karega */
-    justify-content: flex-start; /* Ensure karega ki sab kuch Left side hi rahe */
-    
-    text-align: left; 
-    padding: 10px;
-    color: white;
-     background: #232b5ad0;
-    border: #4a389b solid 1px;
+.left-container .left-top {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column; /* Sirf upar-neeche se center karega */
+  justify-content: flex-start; /* Ensure karega ki sab kuch Left side hi rahe */
+height:40%;
+  text-align: left;
+  padding: 10px;
+  color: white;
+  background: #232b5ad0;
+  border: #4a389b solid 1px;
 }
-.left-container .left-top h3{
-    margin: 5px;
-    font-size: 18px;
+.left-container .left-top h3 {
+  margin: 5px;
+  font-size: 18px;
 }
 
-.left-container .left-top p{
-     margin: 10px;
-    font-size: 18px;
-    
-    line-height: 1; /* Text ki extra space hatane ke liye */
+.left-container .left-top p {
+  margin: 10px;
+  font-size: 18px;
 
-    
+  line-height: 1; /* Text ki extra space hatane ke liye */
 }
-.icon{
-    font-size: 16px;
-     flex-shrink: 0; 
-     color: #4019ee;
-
+.icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  color: #4019ee;
+}
+.left-bottom{
+  width: 100%;
+  height: 60%;
+   padding: 10px;
+  color: white;
+  background: #232b5ad0;
+  border: #4a389b solid 1px;
 }

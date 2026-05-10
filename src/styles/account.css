@@ -90,9 +90,9 @@
     width:100%;
     margin-bottom: 10px;
 }
-.account-card .details, .buttons{
+.account-card .details{
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
     width: 50%;
 }
 .account-card .details{
@@ -108,26 +108,28 @@
 .account-card .details :nth-child(3){
   color: rgb(116, 116, 194);
 }
-.buttons{
+.right-buttons{
+  display: flex;
+  flex-direction: column;
     align-items: flex-end;
-    justify-content: space-between;
+   
 }
-.buttons .type-name{
+.right-buttons .type-name{
   margin:10px  20px 0 0;
     background: rgba(5, 5, 146, 0.185);
     color: white;
     border: 1px solid rgb(29, 89, 201);
     padding: 10px 15px;
-    width:130px;
+    width:auto;
     text-align: center;
     cursor: pointer;
 }
-.buttons .all-btn{
+.right-buttons .all-btn{
     color: whitesmoke;
     border: none;
     padding: 5px 10px;
 }
-.buttons .all-btn .btn{
+.right-buttons .all-btn .btn{
     background: rgba(5, 5, 146, 0.185);
     color: white;
     border: 1px solid rgb(29, 89, 201);

@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.cards {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #1d1155;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.cards-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  height: 50px; /* Increased from 40px */
+}
+
+/* These two divs balance the bar so the center is actually the center */
+.cards-navbar .nav-side {
+  flex: 1;
+}
+
+.cards-navbar .nav-center {
+  flex: 0; /* Only takes as much space as the text needs */
+  text-align: center;
+}
+
+.cards-navbar .nav-side.right {
+  text-align: right;
+  margin-right: 10px;/* Pushes the 2/6 to the far right wall */
+}
+.cards-content {
+  flex: 1;
+  margin: 10px 0 0 5px;
+ 
+}
+.card-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 10px 0 0;
+}
+.card1, .card2 {
+  width: 48%;
+  height: 250px;
+}
+.card1{
+ background: #3512d3ab;
+}
+.card2{
+ background: #0ab835ab;
+}
+.card-details{
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin: 10px 0 10px -7px;
+
+}
+.card-details div{
+  margin: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #102599ab;
+  padding: 20px 10px;
+  flex: 1;
+}
+.card-control{
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin: 10px 0 10px -7px;
+
+}
+.card-control div{
+   margin: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #102599ab;
+  padding: 20px 10px;
+  flex: 1;
+}

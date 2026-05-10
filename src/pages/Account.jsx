@@ -9,6 +9,7 @@ function Account() {
   ]);
    const addAccount = () => {
     const newAccount = {
+      id:Date.now(),
       type: 'New',
       label: 'New Savings Account',
       number: 'XXXX 0000',
@@ -42,14 +43,14 @@ function Account() {
       </div>
       <div className="accounts-list">
         {/* अब map 'accountList' state पर चलेगा */}
-        {accountsList.map((acc, index) => (
-          <div key={index} className="account-card">
+        {accountsList.map((acc) => (
+          <div key={acc.id||acc.number} className="account-card">
            <div className="details">
             <h3>{acc.label}</h3>
             <p>{acc.number}</p>
             <h3>{acc.balance}</h3>
             </div> 
-            <div className="buttons">
+            <div className="right-buttons">
               <div className="type-name">
                 <p>{acc.type}</p>
               </div>
