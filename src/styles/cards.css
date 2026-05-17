@@ -43,22 +43,57 @@
   justify-content: space-between;
   align-items: center;
   margin: 8px 10px 0 0;
+  padding: 0 10px 0 0;
 }
 .card1, .card2 {
   width: 48%;
   height: 250px;
+  display: flex;
+  border-radius: 4px;
+  position: relative;
+  
+}
+.card-left{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+ padding: 0 0 40px 20px;
+}
+.card-left::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  width: 60px;
+  height: 40px;
+  background-color: rgba(255, 115, 0, 0.808);
+ 
+}
+.card-left p{
+  color: rgb(209, 196, 196);
+  margin: 8px 0 8px 15px;
+  font-size: 13px;
+}
+.card-right{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ align-items: end;
+  padding:0 15px 40px 0;
 }
 .card1{
  background: #3512d3ab;
 }
 .card2{
- background: #0ab835ab;
+ background: #0ab83562;
 }
 .card-details{
   display: flex;
   justify-content: center;
   color: white;
-  margin: 10px 0 10px -7px;
+  margin: 15px 0 10px -7px;
 
 }
 .card-details div{
@@ -67,6 +102,10 @@
   background: #102599ab;
   padding: 20px 10px;
   flex: 1;
+}
+.card-details div h3{
+  margin: 10px 0 0 2px;
+  font-size: 24px;
 }
 .card-control{
   display: flex;
@@ -81,4 +120,10 @@
   background: #102599ab;
   padding: 20px 10px;
   flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.cards-content .control-title{
+  margin: 20px 0 2px 0;
 }

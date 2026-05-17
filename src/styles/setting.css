@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.setting {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #1d1155;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.setting-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  height: 50px; /* Increased from 40px */
+}
+
+/* These two divs balance the bar so the center is actually the center */
+.setting-navbar .nav-side {
+  flex: 1;
+}
+
+.setting-navbar .nav-center {
+  flex: 0; /* Only takes as much space as the text needs */
+  text-align: center;
+}
+
+.setting-navbar .nav-side.right {
+  text-align: right;
+  margin-right: 10px;/* Pushes the 2/6 to the far right wall */
+}
+.setting-content{
+    flex: 1;
+    padding: 10px;
+}
+.setting-content :first-child{
+    color: rgba(206, 205, 168, 0.582);
+}
+.setting-content P{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: orangered;
+    margin: 10px 0 0 4px;
+}
+.setting-profile{
+    background: #3512d3ab;
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+.logo{
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #0ab83562;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
