@@ -8,13 +8,28 @@
   flex-direction: column;
   height: 100vh;
   background: #1d1155;
+  overflow-y: auto;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+/* Hides scrollbar for Chrome, Safari, and Opera */
+.setting::-webkit-scrollbar,
+.setting-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hides scrollbar for IE, Edge, and Firefox */
+.setting,
+.setting-content {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 .setting-navbar {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   height: 50px; /* Increased from 40px */
 }
@@ -37,26 +52,86 @@
     flex: 1;
     padding: 10px;
 }
-.setting-content :first-child{
-    color: rgba(206, 205, 168, 0.582);
-}
+
 .setting-content P{
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: orangered;
-    margin: 10px 0 0 4px;
+    margin: 10px 0 10px 10px;
 }
 .setting-profile{
     background: #3512d3ab;
     width: 100%;
-    padding: 5px 10px;
     border-radius: 4px;
+    border: 1px solid rgb(13, 186, 255);
 }
-.logo{
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: #0ab83562;
+.setting-profile-item{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+      border-bottom: 1px solid rgb(13, 186, 255);
+
+  
+}
+.setting-profile-item .logo{
+    width: 40px;
+    height: 40px;
+    background: #1d1155;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
 }
+.setting-profile-item .name{
+    margin-left: 10px;
+}
+.setting-profile-item .name h2,h4{
+font-size: 14px;
+    color: white;}
+.setting-profile-item .name h4{
+font-size: 14px;
+    color: rgb(14, 177, 218);}
+
+.setting-profile-item .edit{
+margin-left:auto;
+
+}
+.setting-profile-item .edit button{
+    background: transparent;
+    border: 1px solid rgb(8, 108, 240);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+
+}
+/* Base styling for all toggle buttons */
+.setting-profile-item .edit .toggle-btn {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  min-width: 60px; /* Keeps button size uniform when text switches */
+}
+
+/* Color state when the feature is turned ON (Green/Blue base) */
+.setting-profile-item .edit .toggle-btn.on {
+  background-color: #22c55e; /* Green */
+  color: white;
+}
+
+/* Color state when clicked and turned OFF (Red base) */
+.setting-profile-item .edit .toggle-btn.off {
+  background-color: #ef4444; /* Red */
+  color: white;
+}
+
+/* Light click effect */
+.setting-profile-item .edit .toggle-btn:active {
+  transform: scale(0.95);
+}
+
