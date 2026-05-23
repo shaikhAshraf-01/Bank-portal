@@ -1,4 +1,5 @@
 import { useState  } from 'react'
+import {useAuth} from '../context/AuthContext'
 import {useNavigate} from 'react-router-dom'
 import { FaUniversity , FaGoogle, FaFacebook} from "react-icons/fa";
 import '../styles/login.css'
@@ -8,13 +9,15 @@ function Login() {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [rememberMe, setRememberMe] = useState(false)
+  const { login } = useAuth();
   const navigate = useNavigate()
   
   const handleDashboard = () => {
-    if(email==='' ||password===''){
-      alert(`Fill details to login in your account`);
+      const success = login(email, password)  // ← use context login
+    if (!success) {
+      alert('Fill details to login in your account')
+      return
     }
-
     navigate('/dashboard')
   }
 

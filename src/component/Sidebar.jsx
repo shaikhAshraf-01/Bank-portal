@@ -1,9 +1,15 @@
 import {NavLink, useNavigate} from "react-router-dom";
 import '../styles/sidebar.css'
+import{useAuth} from "../context/AuthContext";
 import { FaUniversity, FaPowerOff } from "react-icons/fa";
 
 function Sidebar() {
+  const {logout}=useAuth();
   const navigate = useNavigate();
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  }
 
   return (
     <div className="side-panel">
@@ -31,7 +37,7 @@ function Sidebar() {
           <span className="sidebar-icon">⚙️</span>Settings
         </NavLink>
       </nav>
-        <button className="logout-button" onClick={() => navigate('/login')}>
+        <button className="logout-button" onClick={ handleLogout}>
            <FaPowerOff />Logout
         </button>
     </div>

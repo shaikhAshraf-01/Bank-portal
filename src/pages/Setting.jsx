@@ -1,5 +1,6 @@
 import { useState } from "react"; // 1. Added useState
 import "../styles/setting.css";
+import { useAuth } from "../context/AuthContext";
 import {
   FaLock,
   FaUser,
@@ -14,7 +15,7 @@ import {
 } from "react-icons/fa";
 
 function Setting() {
-  
+  const { user } = useAuth();
   const [twoFA, setTwoFA] = useState(true);
   const [biometric, setBiometric] = useState(true);
   const [alerts, setAlerts] = useState(true);
@@ -46,8 +47,8 @@ function Setting() {
           <div className="setting-profile-item">
             <div className="logo"><FaUser /></div>
             <div className="name">
-              <h2>Alex Rodrigues</h2>
-              <h4>alex.rodrigues@example.com</h4>
+              <h2>{user?.name}</h2>
+              <h4>{user?.email}</h4>
             </div>
             <div className="edit"><button>Edit Profile</button></div>
           </div>

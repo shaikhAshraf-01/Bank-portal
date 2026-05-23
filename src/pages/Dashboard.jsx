@@ -1,4 +1,5 @@
 import "../styles/dashboard.css";
+import { useAuth } from "../context/AuthContext";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useNavigate } from "react-router-dom";
 
@@ -13,6 +14,7 @@ const SpendingData=[
 
 
 function Dashboard() {
+  const {user}=useAuth();
   const navigate=useNavigate();
 const Statements=()=>{
   navigate('/Statement');
@@ -38,7 +40,7 @@ const Cards=()=>{
       </nav>
 
       <div className="dashboard-header">
-        <h2>Good Morning, Alex 👋 </h2>
+        <h2>Good Morning, {user?.name} 👋 </h2>
         <p>Here's your financial overview for today.</p>
       </div>
 

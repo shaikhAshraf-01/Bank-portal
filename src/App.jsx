@@ -9,20 +9,18 @@ import Cards from './pages/Cards';
 import Setting from './pages/Setting';
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<DashboardLayout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/accounts" element={<Accounts />} />
-          <Route path="/statement" element={<Statement />} />
-          <Route path="/transfer" element={<Transfer />} />
-          <Route path="/cards" element={<Cards />} />
-          <Route path="/settings" element={<Setting />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Navigate to="/login" />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<DashboardLayout />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/accounts" element={<Accounts />} />
+        <Route path="/statement" element={<Statement />} />
+        <Route path="/transfer" element={<Transfer />} />
+        <Route path="/cards" element={<Cards />} />
+        <Route path="/settings" element={<Setting />} />
+      </Route>
+    </Routes>
   );
 }
 
