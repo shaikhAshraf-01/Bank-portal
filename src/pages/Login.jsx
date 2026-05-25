@@ -1,4 +1,4 @@
-import { useState  } from 'react'
+import { useState, useRef, useEffect  } from 'react'
 import {useAuth} from '../context/AuthContext'
 import {useNavigate} from 'react-router-dom'
 import { FaUniversity , FaGoogle, FaFacebook} from "react-icons/fa";
@@ -11,14 +11,36 @@ function Login() {
   const [rememberMe, setRememberMe] = useState(false)
   const { login } = useAuth();
   const navigate = useNavigate()
+  const emailRef=useRef();
+  const [hasEmailError, setHasEmailError] = useState(false);
+  const passRef=useRef();
+  const[hasPasswordError, setHasPasswordError] = useState(false);
+
+
   
-  const handleDashboard = () => {
-      const success = login(email, password)  // ← use context login
-    if (!success) {
-      alert('Fill details to login in your account')
-      return
+  const handleDashboard = async () => {
+    if (email.trim() === '') {
+      setHasEmailError(true);
+      if (emailRef.current) {
+        emailRef.current.placeholder =` ⚠ Please Enter Email ID`; // Update text
+        emailRef.current.focus(); // Snap user focus to input
+      }
+      return; // Terminate execution early
     }
-    navigate('/dashboard')
+     if (password.trim() === '') {
+      setHasPasswordError(true);
+      if (passRef.current) {
+        passRef.current.placeholder =` ⚠Please Enter password`; // Update text
+        passRef.current.focus(); // Snap user focus to input
+      }
+      return; // Terminate execution early
+    }
+    try {
+      await login(email, password);
+      navigate('/dashboard');
+    }catch(error){
+      console.error("Login failed:", error);
+    }
   }
 
 
@@ -53,23 +75,35 @@ function Login() {
           <p>Sign in to your account</p>
          <div className="form-group">
             <label htmlFor="email">Email Address</label>
-            <input
+            <input className={hasEmailError ? 'error' : ''}
+              ref={emailRef}
               type="email"
               id="email"
               placeholder="user@nexabank.com"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) =>{ setEmail(e.target.value);
+                 setHasEmailError(false);
+                 if (emailRef.current) {
+                emailRef.current.placeholder = "user@nexabank.com"
+              }
+              }}
             />
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
               <div className="password-wrapper">
-              <input
+              <input className={hasPasswordError ? 'error' : ''}
+                ref={passRef}
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 placeholder="••••••••••"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {setPassword(e.target.value);
+                  setHasPasswordError(false);
+                  if (passRef.current) {
+                    passRef.current.placeholder = "••••••••••"
+                  }
+                }}
               />
               <button className="password-toggle" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? '🙈' : '👁'}

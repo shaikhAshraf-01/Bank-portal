@@ -125,6 +125,35 @@ html, body {
     color: white;
     font-size: 16px;
 }
+/* ==========================================
+   DYNAMIC ERROR STATES (Add to bottom of file)
+   ========================================== */
+
+/* 1. Target the specific input when it has the error class */
+.rightSide .form-group input.error {
+    border: 1px solid orange;
+    text-align: left; /* Ensure text is left-aligned */
+}
+
+/* 2. Create the beautiful orange border glow when the user is focused on it */
+.rightSide .form-group input.error:focus {
+    border: 1px solid orange;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.6);
+}
+
+/* 3. Force placeholder text to turn orange across all browsers */
+.rightSide .form-group input.error::placeholder {
+    color: orange;
+    opacity: 1; /* Fixes opacity issues in Firefox */
+}
+
+.rightSide .form-group input.error:-ms-input-placeholder {
+    color: orange;
+}
+
+.rightSide .form-group input.error::-ms-input-placeholder {
+    color: orange;
+}
 
 .password-wrapper{
     position: relative;
@@ -141,6 +170,7 @@ html, body {
     cursor: pointer;
     font-size: 18px;
     color:  #64748b;
+    z-index: 2;
 }
 
 .remember-forget{
