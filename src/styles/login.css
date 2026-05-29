@@ -132,7 +132,6 @@ html, body {
 /* 1. Target the specific input when it has the error class */
 .rightSide .form-group input.error {
     border: 1px solid orange;
-    text-align: left; /* Ensure text is left-aligned */
 }
 
 /* 2. Create the beautiful orange border glow when the user is focused on it */

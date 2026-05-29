@@ -1,5 +1,6 @@
 import "../styles/dashboard.css";
 import { useAuth } from "../context/AuthContext";
+import {useAccount} from "../context/AccountContext";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useNavigate } from "react-router-dom";
 
@@ -14,13 +15,17 @@ const SpendingData=[
 
 
 function Dashboard() {
-  const {user}=useAuth();
+   const { user } = useAuth();
+  const { totalBalance, income, spend } = useAccount();
   const navigate=useNavigate();
+  const Transfer=()=>{
+    navigate('/transfer');
+  }
 const Statements=()=>{
-  navigate('/Statement');
+  navigate('/statement');
 }
 const Cards=()=>{
-  navigate('/Cards');
+  navigate('/cards');
 }
   return (
     <div className="dashboard">
@@ -45,18 +50,19 @@ const Cards=()=>{
       </div>
 
       <div className=" dashboard-boxes">
-        <div className="box box1">
+          <div className="box box1">
           <h4>Total Balance</h4>
-          <p>₹1,50,000</p>
+          <p>₹{totalBalance.toLocaleString('en-IN')}</p>
         </div>
         <div className="box box2">
           <h4>Monthly Income</h4>
-          <p>₹35,000</p>
+          <p>₹{income.toLocaleString('en-IN')}</p>
         </div>
         <div className="box box3">
           <h4>Monthly Spend</h4>
-          <p>₹23,000</p>
+          <p>₹{spend.toLocaleString('en-IN')}</p>
         </div>
+      
       </div>
 
       <div className="summary-actions">
@@ -83,7 +89,7 @@ const Cards=()=>{
         
         <div className="actions">
           <h3>Quick Actions</h3>
-          <button className="action-btn">Send Money</button>
+          <button className="action-btn" onClick={Transfer}>Send Money</button>
           <button className="action-btn" >Request</button>
           <button className="action-btn" onClick={Statements}>Statement</button>
           <button className="action-btn" onClick={Cards}>Cards</button>
