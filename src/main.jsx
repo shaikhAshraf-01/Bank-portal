@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { AccountProvider } from './context/AccountContext.jsx'
 import {TransactionProvider} from './context/TransactionContext.jsx'
+import {SettingsProvider} from './context/SettingContext.jsx'
 import './index.css'
 import App from './App.jsx'
 
@@ -13,7 +14,9 @@ createRoot(document.getElementById('root')).render(
       <AuthProvider>
         <AccountProvider>
           <TransactionProvider>
-          <App />
+            <SettingsProvider>
+              <App />
+            </SettingsProvider>
           </TransactionProvider>
         </AccountProvider>
       </AuthProvider>

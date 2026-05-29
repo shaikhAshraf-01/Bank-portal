@@ -1,6 +1,7 @@
-import { useState } from "react"; // 1. Added useState
+
 import "../styles/setting.css";
 import { useAuth } from "../context/AuthContext";
+import { useSettings } from "../context/SettingContext"; // 2. Importing useSettings from SettingContext
 import {
   FaLock,
   FaUser,
@@ -16,11 +17,14 @@ import {
 
 function Setting() {
   const { user } = useAuth();
-  const [twoFA, setTwoFA] = useState(true);
-  const [biometric, setBiometric] = useState(true);
-  const [alerts, setAlerts] = useState(true);
-  const [emailStmt, setEmailStmt] = useState(true);
-  const [insights, setInsights] = useState(true);
+ 
+ const {
+    twoFA, toggleTwoFA,
+    biometric, toggleBiometric,
+    alerts, toggleAlerts,
+    emailStmt, toggleEmailStmt,
+    insights, toggleInsights,
+  } = useSettings();
 
   return (
     <div className="setting">
@@ -88,12 +92,12 @@ function Setting() {
             </div>
             <div className="edit">
               {/* Dynamic classes and text based on state */}
-              <button 
-                className={`toggle-btn ${twoFA ? "on" : "off"}`} 
-                onClick={() => setTwoFA(!twoFA)}
-              >
-                {twoFA ? "ON" : "OFF"}
-              </button>
+              <button
+        className={`toggle-btn ${twoFA ? "on" : "off"}`}
+        onClick={toggleTwoFA}      
+      >
+        {twoFA ? "ON" : "OFF"}
+      </button>
             </div>
           </div>
           <div className="setting-profile-item">
@@ -105,7 +109,7 @@ function Setting() {
             <div className="edit">
               <button 
                 className={`toggle-btn ${biometric ? "on" : "off"}`} 
-                onClick={() => setBiometric(!biometric)}
+                onClick={toggleBiometric}
               >
                 {biometric ? "ON" : "OFF"}
               </button>
@@ -132,7 +136,7 @@ function Setting() {
             <div className="edit">
               <button 
                 className={`toggle-btn ${alerts ? "on" : "off"}`} 
-                onClick={() => setAlerts(!alerts)}
+                onClick={toggleAlerts}
               >
                 {alerts ? "ON" : "OFF"}
               </button>
@@ -147,7 +151,7 @@ function Setting() {
             <div className="edit">
               <button 
                 className={`toggle-btn ${emailStmt ? "on" : "off"}`} 
-                onClick={() => setEmailStmt(!emailStmt)}
+                onClick={toggleEmailStmt}
               >
                 {emailStmt ? "ON" : "OFF"}
               </button>
@@ -162,7 +166,7 @@ function Setting() {
             <div className="edit">
               <button 
                 className={`toggle-btn ${insights ? "on" : "off"}`} 
-                onClick={() => setInsights(!insights)}
+                onClick={toggleInsights}
               >
                 {insights ? "ON" : "OFF"}
               </button>
