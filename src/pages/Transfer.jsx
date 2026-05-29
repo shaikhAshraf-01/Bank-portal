@@ -1,14 +1,17 @@
 import '../styles/transfer.css';
 import {useState} from 'react';
 import { FaArrowRight } from 'react-icons/fa';
+import {useTransaction} from '../context/TransactionContext';
 import {Legend,BarChart,Tooltip, Cell, Bar,XAxis, YAxis, ResponsiveContainer} from 'recharts';
 function Transfer() {
-  const  [currentAcc, setcurrentAcc]=useState('savings');
-const limit = [
-  { name: 'UPI', used: 45000, remaining: 200000 - 45000, total: 200000 },
-  { name: 'NEFT', used: 150000, remaining: 500000 - 150000, total: 500000 },
-  { name: 'RTGS', used: 300000, remaining: 500000 - 300000, total: 500000 },
-];
+  const { recentBeneficiaries } = useTransaction();
+  const [currentAcc, setcurrentAcc] = useState('savings');
+   const limit = [
+    { name: 'UPI', used: 45000, remaining: 155000, total: 200000 },
+    { name: 'NEFT', used: 150000, remaining: 350000, total: 500000 },
+    { name: 'RTGS', used: 300000, remaining: 200000, total: 500000 },
+  ];
+ 
 
   return (
     <div className="transfer-page">
@@ -57,9 +60,12 @@ const limit = [
       <div className='left-container'>
         <div className="left-top">
           <h3>Recent Beneficiaries</h3>
-          <p><FaArrowRight className='icon'/> Rahul Sharma - 5000</p>
-          <p><FaArrowRight className='icon'/> Rahul Sharma - 5000</p>
-          <p><FaArrowRight className='icon'/> Rahul Sharma - 5000</p>
+          {recentBeneficiaries.map((person) => (
+        <p key={person.id}>
+          <FaArrowRight className='icon'/>
+          {person.name} - {person.amount}
+        </p>
+      ))}
         </div>
        <div className="left-bottom">
   <h3>Transfer Limits</h3>

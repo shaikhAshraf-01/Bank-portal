@@ -1,21 +1,12 @@
 import '../styles/statement.css';
 import { FaDownload } from 'react-icons/fa';
+import { useTransaction } from '../context/TransactionContext';
 
-    const TransactionData = [
-  { id: 1, date: 'Apr 22', desc: 'Apple Music Subscription', cat: 'Entertainment', amt: '-₹99', bal: '₹1,49,901' },
-  { id: 2, date: 'Apr 21', desc: 'Salary Credit', cat: 'Income', amt: '+₹35,000', bal: '₹1,84,901' },
-  { id: 3, date: 'Apr 20', desc: 'Starbucks Coffee', cat: 'Food', amt: '-₹450', bal: '₹1,84,451' },
-  { id: 4, date: 'Apr 19', desc: 'Amazon Purchase', cat: 'Shopping', amt: '-₹2,500', bal: '₹1,81,951' },
-  { id: 5, date: 'Apr 16', desc: 'Amazon Purchase', cat: 'Shopping', amt: '-₹2,500', bal: '₹1,81,951' },
-  { id: 6, date: 'Apr 10', desc: 'Amazon Purchase', cat: 'Shopping', amt: '-₹2,500', bal: '₹1,81,951' },
-  { id: 6, date: 'Apr 10', desc: 'Amazon Purchase', cat: 'Shopping', amt: '-₹2,500', bal: '₹1,81,951' },
-  { id: 6, date: 'Apr 10', desc: 'Amazon Purchase', cat: 'Shopping', amt: '-₹2,500', bal: '₹1,81,951' },
-  { id: 6, date: 'Apr 10', desc: 'Amazon Purchase', cat: 'Shopping', amt: '-₹2,500', bal: '₹1,81,951' },
-  { id: 6, date: 'Apr 10', desc: 'Amazon Purchase', cat: 'Shopping', amt: '-₹2,500', bal: '₹1,81,951' },
-  { id: 6, date: 'Apr 10', desc: 'Amazon Purchase', cat: 'Shopping', amt: '-₹2,500', bal: '₹1,81,951' },
-];
 
+  
+ 
 function Statement(){
+   const { transactions } = useTransaction();
     return(
         <div className="statement">
              <nav className="statement-navbar">
@@ -61,15 +52,15 @@ function Statement(){
       </tr>
     </thead>
     <tbody>
-      {TransactionData.map((item) => (
+      {transactions.map((item) => (
         <tr key={item.id}>
           <td>{item.date}</td>
           <td>{item.desc}</td>
           <td>{item.cat}</td>
-          <td style={{ color: item.amt.includes('+') ? '#22c55e' : '#ef4444', fontWeight: 'bold' }}>
-            {item.amt}
-          </td>
-          <td>{item.bal}</td>
+          <td style={{ color: item.amount > 0 ? '#22c55e' : '#ef4444', fontWeight: 'bold' }}>
+                  {item.amount > 0 ? '+' : ''}₹{Math.abs(item.amount).toLocaleString('en-IN')}
+                </td>
+                <td>₹{item.balance.toLocaleString('en-IN')}</td>
         </tr>
       ))}
     </tbody>

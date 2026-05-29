@@ -1,22 +1,15 @@
 import "../styles/dashboard.css";
 import { useAuth } from "../context/AuthContext";
 import {useAccount} from "../context/AccountContext";
+import { useTransaction } from '../context/TransactionContext';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useNavigate } from "react-router-dom";
-
-const SpendingData=[
-  {month: 'Jan', spend: 15000},
-  {month: 'Feb', spend: 14500},
-  {month: 'Mar', spend: 16000},
-  {month: 'Apr', spend: 15500},
-  {month: 'May', spend: 17000},
-  {month: 'Jun', spend: 16500},
-]
 
 
 function Dashboard() {
    const { user } = useAuth();
   const { totalBalance, income, spend } = useAccount();
+   const { spendingData } = useTransaction();
   const navigate=useNavigate();
   const Transfer=()=>{
     navigate('/transfer');
@@ -69,7 +62,7 @@ const Cards=()=>{
         <div className="summary">
   <p className="card-title">Monthly Comparison</p>
   <ResponsiveContainer width="100%" height={250}>
-    <BarChart data={SpendingData}>
+    <BarChart data={spendingData}>
       {/* Adds background grid lines */}
       <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.1)" />
       
