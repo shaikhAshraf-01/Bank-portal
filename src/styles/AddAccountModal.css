@@ -1,0 +1,140 @@
+/* Overlay — covers entire screen */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal box — center of screen */
+.modal-box {
+  background: #2c1e7e;
+  width: 50%;
+  height: 70%;
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-box h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 10px;
+}
+
+/* Form fields */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 5px;
+}
+
+.modal-form label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2px;
+}
+
+.modal-form input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 10px 15px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.modal-form input:focus {
+  border-color: #4f8ef7;
+}
+
+.modal-form input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Color picker */
+.color-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+   align-items: center;  /* ← add this */
+  flex-direction: row;  /* ← add this */
+  flex-wrap: nowrap; 
+}
+
+.color-circle {
+  width: 30px;
+  height: 30px;
+   min-width: 30px;      /* ← add this */
+  min-height: 30px; 
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: transform 0.2s;
+  display: inline-block; /* ← add this */
+  flex-shrink: 0;     
+}
+
+.color-circle:hover {
+  transform: scale(1.2);
+}
+
+.color-circle.selected {
+  border: 3px solid white;
+  transform: scale(1.2);
+}
+
+/* Buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cancel-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.submit-btn {
+  background: blue;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.submit-btn:hover {
+  background: rgb(13, 224, 59);
+}

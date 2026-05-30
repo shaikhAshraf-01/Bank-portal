@@ -2,9 +2,10 @@ import "../styles/account.css";
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addAccount } from '../store/slices/accountSlice';
+import AddAccountModal from '../component/AddAccountModal';
 
 function Account() {
-  
+  const [showModal, setShowModal] = useState(false);
    const dispatch = useDispatch();
   const accountsList = useSelector((state) => state.account.accountsList);
 
@@ -27,14 +28,14 @@ function Account() {
             <h3>My Accounts</h3>    
             <p>Manage all your bank accounts in one place</p>
         </div>
-        <button className="add-btn" onClick={() => dispatch(addAccount())}>
-          + Add Account
-        </button>
+       <button className="add-btn" onClick={() => setShowModal(true)}>
+  + Add Account
+</button>
       </div>
       <div className="accounts-list">
         {/* अब map 'accountList' state पर चलेगा */}
         {accountsList.map((acc) => (
-          <div key={acc.id||acc.number} className="account-card">
+          <div key={acc.id||acc.number} className="account-card" style={{ borderLeft: `10px solid ${acc.color}` }}>
            <div className="details">
             <h3>{acc.label}</h3>
             <p>{acc.number}</p>
@@ -54,6 +55,7 @@ function Account() {
         ))}
       </div>
 
+{showModal && <AddAccountModal onClose={() => setShowModal(false)} />}
 
     </div>
   );
