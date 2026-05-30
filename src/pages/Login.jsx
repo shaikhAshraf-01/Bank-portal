@@ -1,7 +1,8 @@
-import { useState, useRef, useEffect  } from 'react'
-import {useAuth} from '../context/AuthContext'
+import { useState, useRef  } from 'react'
 import {useNavigate} from 'react-router-dom'
 import { FaUniversity , FaGoogle, FaFacebook} from "react-icons/fa";
+import { useDispatch } from 'react-redux';        // ← add
+import { login } from '../store/slices/authSlice';
 import '../styles/login.css'
 
 function Login() {
@@ -9,7 +10,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [rememberMe, setRememberMe] = useState(false)
-  const { login } = useAuth();
+  const dispatch = useDispatch();
   const navigate = useNavigate()
   const emailRef=useRef();
   const [hasEmailError, setHasEmailError] = useState(false);
@@ -36,8 +37,8 @@ function Login() {
       return; // Terminate execution early
     }
     try {
-      await login(email, password);
-      navigate('/dashboard');
+      dispatch(login({ name: "Alex Rodrigues", email }));
+    navigate('/dashboard');
     }catch(error){
       console.error("Login failed:", error);
     }

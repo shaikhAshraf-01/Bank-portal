@@ -1,10 +1,11 @@
 import '../styles/transfer.css';
 import {useState} from 'react';
 import { FaArrowRight } from 'react-icons/fa';
-import {useTransaction} from '../context/TransactionContext';
+import {useSelector} from 'react-redux';
 import {Legend,BarChart,Tooltip, Cell, Bar,XAxis, YAxis, ResponsiveContainer} from 'recharts';
 function Transfer() {
-  const { recentBeneficiaries } = useTransaction();
+
+  const recentBeneficiaries = useSelector((state) => state.transaction.recentBeneficiaries);
   const [currentAcc, setcurrentAcc] = useState('savings');
    const limit = [
     { name: 'UPI', used: 45000, remaining: 155000, total: 200000 },

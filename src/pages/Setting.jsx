@@ -1,6 +1,6 @@
 
 import "../styles/setting.css";
-import { useAuth } from "../context/AuthContext";
+import { useSelector } from 'react-redux';
 import { useSettings } from "../context/SettingContext"; // 2. Importing useSettings from SettingContext
 import {
   FaLock,
@@ -16,8 +16,7 @@ import {
 } from "react-icons/fa";
 
 function Setting() {
-  const { user } = useAuth();
- 
+ const user = useSelector((state) => state.auth.user); 
  const {
     twoFA, toggleTwoFA,
     biometric, toggleBiometric,

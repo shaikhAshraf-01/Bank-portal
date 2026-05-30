@@ -1,13 +1,15 @@
 import {NavLink, useNavigate} from "react-router-dom";
 import '../styles/sidebar.css'
-import{useAuth} from "../context/AuthContext";
+import { useDispatch } from 'react-redux';
+import { logout } from '../store/slices/authSlice';
 import { FaUniversity, FaPowerOff } from "react-icons/fa";
 
 function Sidebar() {
-  const {logout}=useAuth();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleLogout = () => {
-    logout();
+    dispatch(logout());      // ← clears Redux store
     navigate('/login');
   }
 

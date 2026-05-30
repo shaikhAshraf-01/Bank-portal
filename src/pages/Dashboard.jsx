@@ -1,15 +1,16 @@
 import "../styles/dashboard.css";
-import { useAuth } from "../context/AuthContext";
-import {useAccount} from "../context/AccountContext";
-import { useTransaction } from '../context/TransactionContext';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 
 function Dashboard() {
-   const { user } = useAuth();
-  const { totalBalance, income, spend } = useAccount();
-   const { spendingData } = useTransaction();
+   const user = useSelector((state) => state.auth.user);
+ const accountsList = useSelector((state) => state.account.accountsList);
+ const spendingData = useSelector((state) => state.transaction.spendingData);
+const income = useSelector((state) => state.account.income);
+const spend = useSelector((state) => state.account.spend);
+const totalBalance = accountsList.reduce((sum, acc) => sum + acc.balance, 0);
   const navigate=useNavigate();
   const Transfer=()=>{
     navigate('/transfer');

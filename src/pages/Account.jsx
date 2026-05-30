@@ -1,10 +1,13 @@
 import "../styles/account.css";
 import { useState } from 'react';
-import {useAccount} from "../context/AccountContext";
+import { useSelector, useDispatch } from 'react-redux';
+import { addAccount } from '../store/slices/accountSlice';
 
 function Account() {
   
-   const { accountsList, addAccount } = useAccount();
+   const dispatch = useDispatch();
+  const accountsList = useSelector((state) => state.account.accountsList);
+
   return (
     <div className="account">
       <nav className="account-navbar">
@@ -24,7 +27,9 @@ function Account() {
             <h3>My Accounts</h3>    
             <p>Manage all your bank accounts in one place</p>
         </div>
-        <button className="add-btn" onClick={addAccount}>+ Add Account</button>
+        <button className="add-btn" onClick={() => dispatch(addAccount())}>
+          + Add Account
+        </button>
       </div>
       <div className="accounts-list">
         {/* अब map 'accountList' state पर चलेगा */}

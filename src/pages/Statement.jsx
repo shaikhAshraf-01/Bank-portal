@@ -1,13 +1,13 @@
 import '../styles/statement.css';
 import { FaDownload } from 'react-icons/fa';
-import { useTransaction } from '../context/TransactionContext';
+import { useSelector } from 'react-redux';
 
 
   
  
 function Statement(){
-   const { transactions } = useTransaction();
-    return(
+const transactions = useSelector((state) => state.transaction.transactions);    
+return(
         <div className="statement">
              <nav className="statement-navbar">
         {/* Left Side (Empty to balance the center) */}
