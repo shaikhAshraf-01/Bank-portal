@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import DashboardLayout from './layout/DashboardLayout';
 import Dashboard from './pages/Dashboard';
@@ -9,11 +9,12 @@ import Cards from './pages/Cards';
 import Setting from './pages/Setting';
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/login" />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/" element={<DashboardLayout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<DashboardLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/accounts" element={<Accounts />} />
         <Route path="/statement" element={<Statement />} />
         <Route path="/transfer" element={<Transfer />} />
@@ -21,6 +22,7 @@ function App() {
         <Route path="/settings" element={<Setting />} />
       </Route>
     </Routes>
+    </HashRouter>
   );
 }
 
