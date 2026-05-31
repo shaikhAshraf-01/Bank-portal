@@ -71,18 +71,7 @@
     overflow-y: auto;
     scrollbar-width: none;
    }
-   .accounts-list .account-card:nth-child(1){
-        border-left: 10px solid blue;
-
-   }
-   .accounts-list .account-card:nth-child(2){
-        border-left: 10px solid green;
-
-   }
-   .accounts-list .account-card:nth-child(3){
-        border-left: 10px solid yellow;
-
-   }
+   
 .account-card{
   display:flex;
   justify-content: space-between;
